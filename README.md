@@ -58,7 +58,18 @@ Run `npm run test` to start tests.
 
 >Add missing requirement #5 to the application (Dockerfile and update readme with instructions)
 
-TODO
+Docker does not have release for Fedora 29 yet. Which is what I'm using. But, I've created `Dockerfile`
+ and `.dockerignore` according to instructions online.
+ 
+To build:
+
+Change into repo and `docker build -t <your username>/my-todolist .`
+
+Running:
+
+`docker run -p <port you want>:8080 -d <your username>/my-todolist`
+ 
+ The app should now be serving over `localhost:<port you want>`
 
 >Display test coverage after tests are executed
 

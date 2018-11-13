@@ -15,13 +15,11 @@ app.clearDatabase = () => {
 
 /* The to do list and the form are displayed */
 app.get('/todo', function(req, res) {
-    console.log('SERVER: asked for todos: ' + todolist);
     res.render('todo.ejs', { todolist, clickHandler:"func1();" });
 })
 
 /* Adding an item to the to do list */
 .post('/todo/add/', urlencodedParser, function(req, res) {
-    console.log(req.body);
     if (req.body.newtodo != '') {
         todolist.push(req.body.newtodo);
     }
@@ -32,9 +30,7 @@ app.get('/todo', function(req, res) {
 .get('/todo/delete/:id', function(req, res) {
 
     if (req.params.id != '') {
-        console.log('SERVER: deleting ' + req.params.id);
         todolist.splice(0, 1);
-        console.log('SERVER: todos post delete: ' + todolist)
     }
     res.redirect('/todo');
 })
