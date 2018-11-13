@@ -44,7 +44,8 @@
 <ul>
     <% todolist.forEach(function(todo, index) { %>
         <li>
-            <a href="/todo/delete/<%= index %>">✘</a> <%- todo %>
+            <a href="/todo/delete/<%= index %>">✘</a>
+            <span class="todo-text" data-index="<%= index %>"><%= todo %></span>
 
             <button class="edit-button" onclick="txtTodoIndexEdit.value = <%= index %>;" type="button">&#128393;
             </button>

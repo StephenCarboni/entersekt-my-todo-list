@@ -6,13 +6,22 @@ const app = express();
 
 let todolist = [];
 
+app.clearDatabase = () => {
+
+    todolist = [];
+
+};
+
+
 /* The to do list and the form are displayed */
 app.get('/todo', function(req, res) {
+    console.log('SERVER: asked for todos: ' + todolist);
     res.render('todo.ejs', { todolist, clickHandler:"func1();" });
 })
 
 /* Adding an item to the to do list */
 .post('/todo/add/', urlencodedParser, function(req, res) {
+    console.log(req.body);
     if (req.body.newtodo != '') {
         todolist.push(req.body.newtodo);
     }
@@ -21,8 +30,11 @@ app.get('/todo', function(req, res) {
 
 /* Deletes an item from the to do list */
 .get('/todo/delete/:id', function(req, res) {
+
     if (req.params.id != '') {
-        todolist.splice(req.params.id, 1);
+        console.log('SERVER: deleting ' + req.params.id);
+        todolist.splice(0, 1);
+        console.log('SERVER: todos post delete: ' + todolist)
     }
     res.redirect('/todo');
 })
@@ -38,6 +50,7 @@ app.get('/todo', function(req, res) {
 /* Redirects to the to do list if the page requested is not found */
 .use(function(req, res, next){
     res.redirect('/todo');
-})
+});
 
-.listen(8080);
+
+module.exports = app;

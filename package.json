@@ -1,11 +1,22 @@
 {
   "name": "my-todolist",
   "version": "0.1.0",
+  "scripts": {
+    "start": "node bin.js",
+    "test": "nyc mocha --timeout=3000 --exit"
+  },
   "dependencies": {
     "body-parser": "^1.16.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0"
   },
   "author": "riaan@entersekt.com",
-  "description": "Basic to do list exercise"
+  "description": "Basic to do list exercise",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "chai": "^4.2.0",
+    "cheerio": "^1.0.0-rc.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0"
+  }
 }

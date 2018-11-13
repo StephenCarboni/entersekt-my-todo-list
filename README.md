@@ -34,3 +34,37 @@ Visit http://localhost:8080 in your browser
 
 ### Solution
 Explain what you have done here and why...
+
+**Stephen Carboni:**
+
+Refactored the http server out of app.js. This makes testing easier.
+Run the app with `npm start`
+
+>Add missing requirement #4 to the application
+
+Added a new post endpoint and form to the template to provide this.
+Buttons with pencil icon just selects the option in the dropdown for you.
+
+>Add sufficient test coverage to the application and update readme on howto run the tests
+
+I used:
+ - `mocha` as the testing framework
+ - `istanbul` for coverage
+ - `axios` as an HTTP client
+ - `cheerio` for parsing the returned DOM
+ - `chai` to make the tests read more naturally
+
+Run `npm run test` to start tests.
+
+>Add missing requirement #5 to the application (Dockerfile and update readme with instructions)
+
+TODO
+
+>Display test coverage after tests are executed
+
+`npm run test` does so.
+
+>Find and fix the XSS vulnerability in the application. Also make sure that it wont happen again by including a test.
+
+Done and there is a test case. Change `<%= todo %>` back to `<%- todo %>` to watch it fail.
+
