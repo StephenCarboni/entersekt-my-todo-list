@@ -27,6 +27,14 @@ app.get('/todo', function(req, res) {
     res.redirect('/todo');
 })
 
+.post('/todo/edit', urlencodedParser, (req,res) => {
+
+    todolist[req.body.replacementindex] = req.body.replacementtodo;
+
+    res.redirect('/todo');
+
+})
+
 /* Redirects to the to do list if the page requested is not found */
 .use(function(req, res, next){
     res.redirect('/todo');
